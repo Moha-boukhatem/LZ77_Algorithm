@@ -1,44 +1,61 @@
-from contextlib import nullcontext
-
-
 S= "BRICABRACABRICEDENICE"
+new_chaine = ""
 chaine = len(S)
-new_long = 0
+gauche = ""
+droite = S
+i = 0
+
+
+
+'''
 position = 0
 droite = S
-gauche = ""
-new_chaine = ""
-
+'''
 # parcour la chaine droite
 
-for i in range(chaine) :
-    
-    if S[i] in gauche  :
+while i < chaine :
 
-        if new_long == 0: 
-            new_chaine = S[i]
-            new_long = len(new_chaine)
+    if len(gauche) >= 9 :
+        gauche = gauche[len(gauche)-8:]
+
+    if S[i] in gauche  :
+            
+        new_chaine += S[i]
+        
+        position = len(gauche) - gauche.find(new_chaine)-2 
+        
+        if gauche.find(new_chaine) == -1 :
+            
+            gauche += new_chaine
+            if len(gauche) >= 9 :
+                gauche = gauche[len(gauche)-8:]
+            print("Gauche =\"",gauche,"\" , Droite =\"",droite,"\" : code <",position,",",str(len(new_chaine)),"",S[i],">")
+            droite = S[i+1:]
+            new_chaine =""
+
+
+
+        '''
+         
+            
+            len(new_chaine) = len(new_chaine)
             position =len(gauche)-gauche.find(S[i])-1
         
-        if new_long > 0 and new_chaine == gauche[position:position+new_long]: 
+         and new_chaine == gauche[position:position+len(new_chaine)]: 
 
             new_chaine += S[i]
             droite = S[i+1:]
             gauche+=S[i]        
-            print("Gauche =\"",gauche,"\" , Droite =\"",droite,"\" : code <",position,",",str(new_long),"",S[i],">")
-
-
-
-        if len(gauche) > 9 :
-            gauche = gauche[len(gauche)-8:]
-
+        '''
+        
     if S[i] not in gauche  :
-        
-        print("Gauche =\"",gauche,"\" , Droite =\"",droite,"\" : code <0,0",S[i],">")
+        print("Gauche =\"",gauche,"\" , Droite =\"",droite,"\" : code < 0 , 0 ",S[i],">")
         gauche+=S[i]
-        
-        if len(gauche) > 9 :
-            gauche = gauche[len(gauche)-8:]
+        droite = S[i+1:]
+
+    i+=1
+
+    
 
     
 
