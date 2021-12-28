@@ -1,12 +1,15 @@
-S= "BRICABRACABRICEDENICE "
+from Functions import *
+from OurStatements import *
+
+S= OriginalStatement
+
 new_chaine = ""
 chaine = len(S)
 gauche = ""
 droite = S
-i,k = 0,0
+i,k = 0,1
 
 
-# parcour la chaine droite
 
 while i < chaine :
 
@@ -25,9 +28,10 @@ while i < chaine :
             position = len(gauche) - gauche.find(new_c)-1
         
 
-            k+=1    
-            print(" {}. gauche = \"{}\" , droite = \"{}\" : code < {} , {} , \"{}\" >".format(k%10,gauche,droite,position,str(len(new_c)),S[i]))
-            
+                
+            ShowRedundancySteps(k,gauche,droite,position,new_c,S[i])
+            k+=1
+
             if len(gauche) >= 9 :
                 gauche = gauche[len(gauche)-8:]
 
@@ -36,10 +40,13 @@ while i < chaine :
             new_chaine =""
 
     if S[i] not in gauche  and new_chaine =="":
+        
+        ShowNormalSteps(k,gauche,droite,S[i])
         k+=1
-        print(" {}. gauche = \"{}\" , droite = \"{}\" : code < 0 , 0 , \"{}\" >".format(k,gauche,droite,S[i]))
-        gauche+=S[i]
+
         droite = S[i+1:]
+
+        gauche+=S[i]
 
     i+=1
 
