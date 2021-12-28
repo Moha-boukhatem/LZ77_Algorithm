@@ -1,2 +1,1 @@
-
 OriginalStatement= "BRICABRACABRICEDENICE "
