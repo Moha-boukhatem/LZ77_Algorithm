@@ -1,5 +1,5 @@
 from PrintFunctions import *
-import Statements
+import Statements as Statements
 
 def Main():
     LZ77_Function(Statements.OriginalStatement)
