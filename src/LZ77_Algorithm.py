@@ -2,16 +2,20 @@ from PrintFunctions import *
 import Statements as Statements
 
 def Main():
-    LZ77_Compression_Function(Statements.OriginalStatement)
-    LZ77_Decompression_Function(Statements.Compressed_Statement)
+    #LZ77_Compression_Function(Statements.OriginalStatement)
+    LZ77_Decompression_Function(Statements.OriginalStatement)
 
 
 
 def LZ77_Compression_Function(Statement):
     
+    gauche_list ,droite_list ,position_list ,size_list ,lettre_list= [],[],[],[],[]
+
+
     S= Statement
     new_chaine = ""
     chaine = len(S)
+
     gauche = ""
     droite = S
     i,k = 0,1
@@ -30,6 +34,12 @@ def LZ77_Compression_Function(Statement):
                 position = len(gauche) - gauche.find(new_c)-1
             
                 ShowRedundancySteps(k,gauche,droite,position,new_c,S[i])
+                gauche_list.append(gauche)
+                droite_list.append(droite)
+                position_list.append(position)
+                size_list.append(len(new_c))
+                lettre_list.append(S[i])
+
                 k+=1
 
                 if len(gauche) >= 9 :
@@ -42,6 +52,12 @@ def LZ77_Compression_Function(Statement):
         if S[i] not in gauche  and new_chaine =="":
             
             ShowNormalSteps(k,gauche,droite,S[i])
+            gauche_list.append(gauche)
+            droite_list.append(droite)
+            position_list.append(0)
+            size_list.append(0)
+            lettre_list.append(S[i])
+
             k+=1
 
             droite = S[i+1:]
@@ -49,5 +65,15 @@ def LZ77_Compression_Function(Statement):
 
         i+=1
 
+    return gauche_list ,droite_list ,position_list ,size_list ,lettre_list
+
 def LZ77_Decompression_Function(Statement):
-    pass
+    
+    data = LZ77_Compression_Function(Statement)
+  
+
+    gauche_list   = data[0]
+    droite_list   = data[1]
+    position_list = data[2]
+    size_list     = data[3]
+    lettre_list   = data[4]
