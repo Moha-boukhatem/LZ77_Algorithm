@@ -2,9 +2,12 @@ from PrintFunctions import *
 import Statements as Statements
 
 def Main():
-    LZ77_Function(Statements.OriginalStatement)
+    LZ77_Compression_Function(Statements.OriginalStatement)
+    LZ77_Decompression_Function(Statements.Compressed_Statement)
 
-def LZ77_Function(Statement):
+
+
+def LZ77_Compression_Function(Statement):
     
     S= Statement
     new_chaine = ""
@@ -46,3 +49,5 @@ def LZ77_Function(Statement):
 
         i+=1
 
+def LZ77_Decompression_Function(Statement):
+    pass
