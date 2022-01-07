@@ -15,7 +15,6 @@ def LZ77_Compression_Function(Statement):
     print("\n ##################    Message Encoding   ##################\n")
 
     PrintStatement(Statement)
-    Statement+=" "
 
     S= Statement
     new_chaine = ""
@@ -92,7 +91,7 @@ def LZ77_Decompression_Function(Statement):
             chaine += lettre_list[i]
             
             k+=1
-            ShowNormalDecryptSteps(k,chaine,lettre_list[i])    \
+            ShowNormalDecryptSteps(k,chaine,lettre_list[i])  
         
         else :
             position = len(chaine)-position_list[i]-1
