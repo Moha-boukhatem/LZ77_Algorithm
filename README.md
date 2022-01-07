@@ -15,4 +15,4 @@ Execute the command line in your terminal
 ```
 ./Run.sh
 ```
-You can use it with your own Message Just change it in Statements.py file 
+You can test it with your own Message Just change it in Statements.py file 
