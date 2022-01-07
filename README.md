@@ -1,8 +1,6 @@
 # TextCompression
 Implementation of the LZ77 compression algorithm -- academic project
 
-# TP_DCN
-
 # how to use it
 
 Clone it 
