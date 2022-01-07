@@ -15,7 +15,7 @@ def LZ77_Compression_Function(Statement):
     print("\n ##################    Message Encoding   ##################\n")
 
     PrintStatement(Statement)
-
+    Statement+=" "
 
     S= Statement
     new_chaine = ""

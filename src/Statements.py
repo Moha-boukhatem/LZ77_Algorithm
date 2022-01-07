@@ -1,3 +1,1 @@
-OriginalStatement= "BRICABRACABRICEDENICE "
-#OriginalStatement= "jetestemontest "
-#Compressed_Statement=""
+OriginalStatement= "BRICABRACABRICEDENICE"
