@@ -8,7 +8,6 @@ Implementation of the LZ77 compression algorithm -- academic project
 Clone it 
 ```
 git clone https://github.com/Moha-boukhatem/LZ77_Algorithm.git
-
 ```
 
 Execute the command line in your terminal 
